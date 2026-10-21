@@ -203,6 +203,8 @@ Les contributions alimentaires ont été calculées à partir des enregistrement
 
 Pour chaque nutriment, les apports estimés ont été agrégés par code et libellé d'aliment.
 
+La contribution relative d'un aliment est calculée comme le rapport entre la somme des apports estimés provenant de cet aliment et la somme des apports estimés de l'ensemble des aliments, pour un nutriment donné. Cette approche, fondée sur un ratio de sommes, permet de quantifier la part de chaque aliment dans les apports totaux calculés à partir des enregistrements disponibles. Elle se distingue d'une moyenne des contributions individuelles, qui donnerait le même poids à chaque individu indépendamment de son apport total. Les contributions obtenues ne constituent pas des estimations nationales corrigées par les poids individuels du plan de sondage.
+
 | Nutriment | Principal aliment contributeur | Contribution estimée |
 |---|---|---:|
 | Protéines | Pain blanc | 7,10 % |
@@ -299,11 +301,40 @@ La base de données et les CSV bruts ne sont pas stockés dans le dépôt GitHub
 
 Les instructions d'installation et d'exécution figurent dans le `README.md`.
 
+### 5.4. Analyse de sensibilité aux pondérations d'enquête
+
+Afin d'évaluer l'influence des pondérations d'enquête sur les résultats nutritionnels, une analyse complémentaire a été réalisée à partir des poids individuels `pond_indiv_adu_pop3` et `pond_indiv_enf_pop3` de l'étude INCA 3.
+
+Les populations adultes et enfants ont été analysées séparément, conformément à la distinction entre les deux échantillons de l'enquête.
+
+La moyenne pondérée est calculée selon la formule :
+
+\[
+\overline{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
+\]
+
+où \(x_i\) correspond à l'apport nutritionnel individuel et \(w_i\) au poids d'enquête associé.
+
+| Population | Nutriment | Moyenne non pondérée | Moyenne pondérée POP3 | Écart relatif |
+|---|---|---:|---:|---:|
+| Adultes | Énergie (kcal/j) | 2 056,75 | 2 102,43 | +2,22 % |
+| Adultes | Protéines (g/j) | 81,12 | 83,13 | +2,47 % |
+| Enfants | Énergie (kcal/j) | 1 757,70 | 1 671,21 | −4,92 % |
+| Enfants | Protéines (g/j) | 66,11 | 62,98 | −4,74 % |
+
+La prise en compte des pondérations augmente légèrement les apports moyens estimés chez les adultes, tandis qu'elle les diminue chez les enfants. L'écart atteint environ 5 % pour les deux indicateurs chez les enfants.
+
+Ces résultats montrent que les statistiques descriptives non pondérées peuvent différer des estimations intégrant les poids d'enquête.
+
+Cette analyse constitue un contrôle de sensibilité complémentaire. Elle ne prend pas en compte l'ensemble des caractéristiques du plan de sondage complexe et ne fournit pas d'intervalles de confiance ajustés à ce plan.
+
+Le script `src/analyse_ponderations.py` permet de reproduire les calculs, dont les résultats sont enregistrés dans `reports/comparaison_ponderations.csv`.
+
 ## 6. Discussion et limites méthodologiques
 
 Plusieurs précautions doivent être prises dans l'interprétation des résultats.
 
-**Premièrement**, les analyses Q1 à Q4 et Q6 reposent principalement sur des statistiques descriptives non pondérées. Les poids individuels et le plan de sondage complexe ne sont pas intégrés systématiquement. Les résultats décrivent donc les observations disponibles plutôt que la population française dans son ensemble.
+**Premièrement**, les analyses principales Q1 à Q4 et Q6 reposent sur des statistiques descriptives non pondérées. Une analyse complémentaire utilisant les poids individuels POP3 a cependant été réalisée pour les apports énergétiques et protéiques, séparément chez les adultes et les enfants. Elle montre des différences entre moyennes pondérées et non pondérées. Les résultats du tableau de bord restent descriptifs et ne constituent pas des estimations intégrant l'ensemble du plan de sondage complexe.
 
 **Deuxièmement**, les échantillons enfants et adultes d'INCA 3 ont été constitués séparément. Les comparaisons entre toutes les classes d'âge ne doivent pas être assimilées à une estimation nationale unique.
 
