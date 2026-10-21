@@ -23,8 +23,14 @@ st.set_page_config(
     layout="wide"
 )
 
+# Répertoire principal du projet
 BASE_DIR = Path(__file__).resolve().parent
-DB_PATH = BASE_DIR / "data" / "processed" / "nutrihfr.db"
+
+# Sélection de la base destinée au tableau de bord
+BASE_WEB = BASE_DIR / "data" / "processed" / "nutrihfr_web.db"
+BASE_ORIGINALE = BASE_DIR / "data" / "processed" / "nutrihfr.db"
+
+DB_PATH = BASE_WEB if BASE_WEB.is_file() else BASE_ORIGINALE
 
 CODES_SEXE = {
     1: "Homme",

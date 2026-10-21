@@ -1,0 +1,51 @@
+aliment_libelle_INCA3,contribution_pct,nutriment
+pain blanc,7.102762534038545,proteines
+lait (classique),3.3297588292263023,proteines
+chocolat chaud à base de lait,3.0307818191684066,proteines
+escalope de poulet,2.52218517964101,proteines
+bifteck de boeuf,2.408441152428026,proteines
+viande hachée de boeuf,2.388736464723581,proteines
+cuisse de poulet,2.069285934569368,proteines
+pâte alimentaire (classique),1.6523150915640585,proteines
+pizza,1.3554349567538955,proteines
+jambon cuit sans couenne,1.2009607491783825,proteines
+lait (classique),9.633331290665469,calcium
+chocolat chaud à base de lait,8.299716699503975,calcium
+eau (du robinet),3.3628332498761573,calcium
+yaourt nature,2.7192885698680906,calcium
+eau minérale plate non aromatisée,2.4786989783249345,calcium
+comté,2.0236083104338607,calcium
+pizza,1.9269809917233514,calcium
+eau de source plate non aromatisée,1.8855037553105538,calcium
+pain blanc,1.7016776460117407,calcium
+yaourt aromatisé,1.6090379661899867,calcium
+pain blanc,8.393726872742405,fer
+chocolat chaud à base de lait,3.270670999592165,fer
+viande hachée de boeuf,2.0153560285047125,fer
+soupe (de légumes),1.5358976564689013,fer
+bifteck de boeuf,1.5153908570016348,fer
+pâte à tartiner chocolat noisette type nutella,1.4101511949739418,fer
+pâte alimentaire (classique),1.36140113279457,fer
+eau (du robinet),1.3163830342460034,fer
+vin rouge,1.1764726639453056,fer
+boudin noir,1.130109216984746,fer
+pain blanc,10.773484455988273,fibres
+pâte alimentaire (classique),3.270188280804239,fibres
+soupe (de légumes),3.070574379526069,fibres
+haricot vert,2.3463753013708195,fibres
+compote (de fruits),2.2573612093773217,fibres
+frite (de pommes de terre) à la friteuse,2.1111757762947123,fibres
+pomme de terre,2.071921854757593,fibres
+chocolat chaud à base de lait,1.5973881750023962,fibres
+pain complet,1.3767341836145537,fibres
+pain aux céréales,1.3499260258998143,fibres
+jus de fruits 100% pur jus,15.7118244945324,vitamine_c
+orange (classique),6.60854226247391,vitamine_c
+fraise,4.56640477134287,vitamine_c
+jus de fruits à base de concentré,4.0878469024933,vitamine_c
+kiwi (frais),3.825997584256248,vitamine_c
+compote (de fruits),3.701395924495693,vitamine_c
+soupe (de légumes),3.5890426037986014,vitamine_c
+tomate rouge,3.2886268374292897,vitamine_c
+mandarine,2.8602464926335607,vitamine_c
+ratatouille,2.2823790483836546,vitamine_c
