@@ -255,6 +255,12 @@ L'écart entre les 10e et 90e percentiles met également en évidence une variab
 
 ### 5.1. Application Streamlit
 
+Une version publique du tableau de bord a également été déployée sur Streamlit Community Cloud :
+
+**https://nutrihfr.streamlit.app/**
+
+Cette version utilise des statistiques agrégées exportées dans `data/public/`, tandis que la version locale exploite directement la base SQLite. Les deux versions permettent de consulter les six analyses nutritionnelles.
+
 Un tableau de bord interactif a été développé avec Streamlit dans le fichier `app.py`.
 
 L'application présente une page d'accueil et six pages correspondant aux analyses Q1 à Q6. Elle permet de consulter les statistiques, les graphiques et, selon les analyses, de sélectionner des variables ou des nutriments.

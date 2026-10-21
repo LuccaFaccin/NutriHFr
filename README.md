@@ -1,5 +1,15 @@
 # NutriHFr — Analyse des consommations alimentaires et des apports nutritionnels
 
+## Application interactive en ligne
+
+Le tableau de bord NutriHFr est accessible directement depuis un navigateur :
+
+**[Accéder au tableau de bord NutriHFr](https://nutrihfr.streamlit.app/)**
+
+L'application présente six analyses nutritionnelles interactives fondées sur les données INCA 3. La version publique utilise uniquement des résultats agrégés, sans publier les enregistrements individuels.
+
+Le code de l'application publique est disponible dans `app_public.py`. La version locale utilisant SQLite est disponible dans `app.py`.
+
 ## 1. Présentation
 
 **NutriHFr** est un projet académique de science des données appliquée à la nutrition humaine, réalisé dans le cadre du parcours IODAA d'AgroParisTech.
