@@ -210,14 +210,6 @@ def construire_base(destination):
     verifier_fichiers()
 
     destination = Path(destination).resolve()
-    base_actuelle = (
-        DOSSIER_DESTINATION / "nutrihfr.db"
-    ).resolve()
-
-    if destination == base_actuelle:
-        raise ValueError(
-            "La base principale nutrihfr.db est protégée."
-        )
 
     if destination.exists():
         raise FileExistsError(

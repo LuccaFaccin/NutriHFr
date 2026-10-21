@@ -95,7 +95,7 @@ def charger_consommations():
             aliment_code_INCA3,
             aliment_libelle_INCA3,
             qte_conso,
-            R24_pond,
+            qte_conso_pond,
             proteines,
             calcium,
             fer,
@@ -110,23 +110,20 @@ def charger_consommations():
 
 @st.cache_data
 def calculer_contributions_alimentaires():
-
     donnees = charger_consommations().copy()
 
-    # Calcul des apports nutritionnels par consommation
+    # Calcul des apports nutritionnels à partir des quantités pondérées
     for nutriment in NUTRIMENTS_Q5.values():
-
-        donnees[f"apport_{nutriment}"] = (
-            donnees["qte_conso"]
+        donnees[f"apport_pond_{nutriment}"] = (
+            donnees["qte_conso_pond"]
             * donnees[nutriment]
             / 100
         )
 
-        # Pondération des enregistrements alimentaires
-        donnees[f"apport_pond_{nutriment}"] = (
-            donnees[f"apport_{nutriment}"]
-            * donnees["R24_pond"]
-        )
+    colonnes_apports = [
+        f"apport_pond_{nutriment}"
+        for nutriment in NUTRIMENTS_Q5.values()
+    ]
 
     colonnes_apports = [
         f"apport_pond_{nutriment}"
@@ -501,13 +498,15 @@ elif page == "Q5 - Aliments contributeurs":
     st.pyplot(fig)
     plt.close(fig)
 
-    st.caption(
-        "Contributions calculées à partir des quantités consommées, "
-        "des teneurs nutritionnelles pour 100 g et du coefficient R24_pond. "
-        "La signification exacte de ce coefficient doit être vérifiée "
-        "dans la documentation INCA 3."
-    )
 
+    st.caption(
+        "Contributions estimées à partir des quantités consommées "
+        "pondérées (qte_conso_pond) et des teneurs nutritionnelles "
+        "pour 100 g. La pondération R24_pond est déjà intégrée "
+        "dans qte_conso_pond. Les résultats sont descriptifs et "
+        "ne constituent pas des estimations représentatives "
+        "de la population française."
+    )
 
 # ============================================================
 # 12. Q6 - VARIABILITÉ DES APPORTS
